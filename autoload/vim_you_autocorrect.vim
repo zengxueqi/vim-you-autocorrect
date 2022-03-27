@@ -184,6 +184,15 @@ endfunction
 
 " Little helper for checking if there's a spelling error in a string
 function! s:no_error_in(the_string) abort
+  " skip checking for all upper case word, `` block or path name
+  if a:the_string =~# '\m\C\s\?\(`.*`\|[A-Z0-9*#,.:"'')\]}>]\+s\?\)\s*$'
+      \ ||
+      \ a:the_string =~# '\m\C[\/\\]'
+    return v:true
+  endif
+
+  " let l:s = synIDattr(synID(line('.'), col('.'), 1), 'name')
+
   " spellbadword() returns a list containing two items. If the first item in
   " the list is the empty string, then there was no spelling error.
   return empty(spellbadword(a:the_string)[0])

@@ -31,6 +31,8 @@ nnoremap <silent> <Plug>VimyouautocorrectJump :call vim_you_autocorrect#jump_to_
 nnoremap <silent> <Plug>VimyouautocorrectNext :call vim_you_autocorrect#next()<CR>
 nnoremap <silent> <Plug>VimyouautocorrectPrevious :call vim_you_autocorrect#previous()<CR>
 
+imap <F3> <C-O><Plug>VimyouautocorrectUndo
+
 " Restore user's cpoptions setting
 let &cpoptions = s:save_cpo
 unlet s:save_cpo

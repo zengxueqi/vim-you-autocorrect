@@ -32,6 +32,12 @@ nnoremap <silent> <Plug>VimyouautocorrectNext :call vim_you_autocorrect#next()<C
 nnoremap <silent> <Plug>VimyouautocorrectPrevious :call vim_you_autocorrect#previous()<CR>
 
 imap <F3> <C-O><Plug>VimyouautocorrectUndo
+nmap <F3> <Plug>VimyouautocorrectUndo
+
+augroup enable_autocorrect
+  autocmd!
+  autocmd FileType markdown EnableAutocorrect
+augroup END
 
 " Restore user's cpoptions setting
 let &cpoptions = s:save_cpo
